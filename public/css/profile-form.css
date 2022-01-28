@@ -1,6 +1,6 @@
 body {
   font-family: "Varela Round", sans-serif;
-  background: #254e58;
+  background: #271013;
 }
 
 ::-webkit-scrollbar {
@@ -8,17 +8,17 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey;
+  box-shadow: inset 0 0 5px #271013;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #254e58;
+  background: #271013;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: white;
+  background: rgb(233, 87, 87);
 }
 .form-control {
   box-shadow: none;
@@ -26,17 +26,17 @@ body {
   font-size: 13px;
 }
 .form-control:focus {
-  border-color: #33cabb;
-  box-shadow: 0 0 18px rgba(34, 139, 238, 0.3);
+  border-color: rgb(233, 87, 87);
+  box-shadow: 0 0 18px rgb(233, 87, 87);
 }
 
 .navbar {
-  background: rgba(232, 243, 234);
+  background: rgb(216, 171, 171);
   padding-left: 16px;
   padding-right: 30px;
   padding-bottom: 10px;
   padding-top: 10px;
-  border-bottom: 1px solid #dfe3e8;
+  border-bottom: 1px solid #271013;
   border-radius: 0;
 }
 
@@ -55,7 +55,7 @@ body {
 
 .navbar .navbar-brand b {
   font-weight: bold;
-  color: #1c3941;
+  color: #271013;
 }
 .navbar .form-inline {
   display: inline-block;
@@ -64,13 +64,13 @@ body {
   position: relative;
 }
 .navbar .nav li a {
-  color: #888;
+  color: #271013;
 }
 
 .navbar .nav .btn-primary,
 .navbar .nav .btn-primary:active {
   color: white;
-  background: #254e58;
+  background: #271013;
   padding-top: 13px;
   padding-bottom: 13px;
   font-size: 13px;
@@ -81,11 +81,11 @@ body {
 
 .navbar .nav .btn-primary:hover,
 .navbar .nav .btn-primary:focus {
-  color: #254e58;
+  color: #271013;
   outline: none;
   font-weight: bold;
-  background: rgba(232, 243, 234, 0.6);
-  border: 1px solid #254e58;
+  background: #c98c95;
+  border: 1px solid #c98c95;
   padding-bottom: 11px;
 }
 .navbar .navbar-right li:first-child a {
@@ -113,15 +113,15 @@ body {
 }
 .navbar ul.nav li.open > a.get-started-btn {
   color: #fff;
-  background: #33cabb;
+  background: rgb(233, 87, 87);
 }
 .navbar .dropdown-menu {
   border-radius: 20px;
-  border-color: #1de4e4;
-  box-shadow: 0 12px 18px rgba(11, 119, 207, 0.5);
+  border-color: rgb(233, 87, 87);
+  box-shadow: 0 12px 18px rgb(233, 87, 87);
 }
 .navbar .nav .dropdown-menu li {
-  color: #254e58;
+  color: #271013;
   font-weight: bold;
 }
 .navbar .nav .dropdown-menu li a,
@@ -141,7 +141,7 @@ body {
   font-size: 14px;
 }
 .navbar .dropdown-menu.form-wrapper a {
-  color: #33cabb;
+  color: rgb(233, 87, 87);
   padding: 0 !important;
 }
 .navbar .dropdown-menu.form-wrapper a:hover {
@@ -166,13 +166,13 @@ body {
   text-decoration: none;
 }
 .navbar .btn-primary {
-  background: #33cabb;
+  background: #271013;
 }
 .navbar .btn-primary:hover {
-  background: #33cabb;
+  background: #271013;
 }
 .navbar .btn-info {
-  background: #64ccf1;
+  background: #271013;
 }
 
 .navbar .form-wrapper .form-footer {
@@ -192,10 +192,10 @@ body {
   font-size: 16px;
   margin-right: 10px;
   font-weight: bold;
-  color: #254e58;
+  color: #271013;
 }
 #node:hover {
-  color: teal;
+  color: #4b1111ce;
 }
 
 #lll {
@@ -249,8 +249,8 @@ body {
 }
 
 #myBtn:hover {
-  background-color: #33cabb;
-  box-shadow: 1px 15px 50px 10px rgba(7, 92, 172, 0.4);
+  background-color: #271013;
+  box-shadow: 1px 15px 50px 10px #271013;
   border-radius: 10px;
 }
 
@@ -261,16 +261,16 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgba(232, 243, 234);
-  color: #254e58;
+  background-color: rgb(216, 171, 171);
+  color: rgb(216, 171, 171);
   text-align: center;
   margin-left: 0;
-  border-bottom: 1px solid black;
+  border: 1px solid black;
 }
 
 .footer1 a:hover {
   text-decoration: none;
-  color: teal;
+  color: rgb(184, 55, 55);
 }
 
 .footer2 {
@@ -280,8 +280,8 @@ body {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgba(232, 243, 234, 0.9);
-  color: #254e58;
+  background-color: rgb(216, 171, 171);
+  color: #271013;
   text-align: center;
   margin-left: 0;
 }
@@ -289,7 +289,7 @@ body {
 .modal {
   display: none;
   position: fixed;
-  background-color: rgba(232, 243, 234);
+  background-color: rgb(216, 171, 171);
   left: 25%;
   top: 19%;
   width: 50%;
@@ -299,7 +299,7 @@ body {
 }
 
 .modal-content {
-  background-color: rgba(232, 243, 234);
+  background-color: rgb(216, 171, 171);
   border: 0px solid black;
   width: 100%;
   height: 100%;
@@ -313,7 +313,7 @@ body {
 #modal-wrapper1 {
   display: none;
   position: fixed;
-  background-color: rgba(232, 243, 234);
+  background-color: #271013;
   left: 15%;
   top: 19%;
   width: 70%;
@@ -322,7 +322,7 @@ body {
   border-radius: 15px;
 }
 #m1 {
-  background-color: rgba(232, 243, 234);
+  background-color: #271013;
   border: 0px solid black;
   width: 100%;
   height: 100%;
@@ -343,7 +343,7 @@ body {
 }
 .close:hover,
 .close:focus {
-  color: #254e58;
+  color: #271013;
   cursor: pointer;
 }
 
@@ -420,7 +420,7 @@ body {
 /* register form (profile  form) */
 
 .register {
-  background: #254e58;
+  background: rgb(216, 171, 171);
   margin-top: -10px;
   padding: 2.8%;
   margin-bottom: -10px;
@@ -447,7 +447,7 @@ body {
   cursor: pointer;
 }
 .register-right {
-  background: rgb(232, 243, 234);
+  background: #8f5159;
   border-top-left-radius: 10% 50%;
   border-bottom-left-radius: 10% 50%;
 }
@@ -488,7 +488,7 @@ body {
   margin-top: 10%;
   border: none;
   padding: 2%;
-  background: #254e58;
+  background: rgb(216, 171, 171);
   color: #fff;
   font-weight: 600;
   width: 50%;
@@ -496,11 +496,11 @@ body {
 }
 
 .btnRegister:hover {
-  color: #254e58;
+  color: #271013;
   outline: none;
   font-weight: bold;
-  background: rgba(232, 243, 234, 0.6);
-  border: 1px solid #254e58;
+  background: white;
+  border: 1px solid #271013;
   padding-bottom: 4px;
 }
 
@@ -509,7 +509,7 @@ body {
   margin-top: 10%;
   border: none;
   padding: 2%;
-  background: #bfbfbf;
+  background: #271013;
   color: #fff;
   font-weight: 600;
   width: 50%;
@@ -519,7 +519,7 @@ body {
 .register .nav-tabs {
   margin-top: 3%;
   border: none;
-  background: #254e58;
+  background: rgb(216, 171, 171);
 
   width: 25.5%;
   float: right;
@@ -535,14 +535,14 @@ body {
 }
 .register .nav-tabs .nav-link.active {
   width: 100px;
-  color: #254e58;
-  border: 1px solid #254e58;
+  color: rgb(216, 171, 171);
+  border: 1px solid rgb(216, 171, 171);
 }
 .register-heading {
   text-align: center;
   margin-top: 8%;
   margin-bottom: -15%;
-  color: #254e58;
+  color: #271013;
 }
 
 /* for checkboxes */
@@ -575,7 +575,7 @@ body {
   height: 15px;
   transition: transform 0.28s ease;
   border-radius: 3px;
-  border: 2px solid #254e58;
+  border: 2px solid #271013;
 }
 .checkbox label:after {
   content: "";
