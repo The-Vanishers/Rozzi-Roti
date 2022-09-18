@@ -1,11 +1,12 @@
 const express= require('express')
 const User = require('../models/user-model')
 const Job = require('../models/job-model')
-const router = express.Router()
 const authCheck= require('../middleware/authCheck')
 const profileCheck =require('../middleware/profileCheck')
 
-router.post('/users',async (req,res)=>{
+const router = express.Router();
+
+router.post('/users', async (req,res)=>{
     const user = new User(req.body)
     try {
         await user.save()
@@ -14,9 +15,22 @@ router.post('/users',async (req,res)=>{
     catch(e){
         res.status(400).send(e)
     }
-})
+});
 
-router.post('/user-worker' ,authCheck, async (req,res)=>{
+router.post('/user-recruiter', authCheck, async (req,res)=>{
+    const user = await User.findOne({googleID : req.user.googleID})
+    user.email=req.body.email
+    user.address=req.body.address
+    user.contact1=req.body.contact1
+    if(req.body.contact2)
+    user.contact2=req.body.contact2
+    user.type="recruiter"
+    req.user=user
+    await user.save()
+    res.redirect('/users/profile')
+});
+
+router.post('/user-worker', authCheck, async (req,res)=>{
      const user = await User.findOne({googleID : req.user.googleID})
      user.email=req.body.email
      user.address=req.body.address
@@ -28,33 +42,18 @@ router.post('/user-worker' ,authCheck, async (req,res)=>{
      jobs.forEach((job)=>{
          if((job in req.body) && !user.jobTypes.includes(job)) user.jobTypes.push(job)
      })
-     
+    
      req.user=user
      await user.save()
     res.redirect('/users/profile')
-})
+});
 
-router.post('/user-recruiter' ,authCheck, async (req,res)=>{
-    const user = await User.findOne({googleID : req.user.googleID})
-    user.email=req.body.email
-    user.address=req.body.address
-    user.contact1=req.body.contact1
-    if(req.body.contact2)
-    user.contact2=req.body.contact2
-    user.type="recruiter"
-    req.user=user
-    await user.save()
-    res.redirect('/users/profile')
-})
 
-router.get('/about-us',(req,res)=>{
-    res.render('about-us',{user:req.user})
-})
-router.get('/users/profile/update' , authCheck ,(req,res)=>{
+router.get('/users/profile/update', authCheck ,(req,res)=>{
     res.render('profile-form',{user:req.user})
 })
 
-router.get('/users/profile' , authCheck ,profileCheck ,(req,res)=>{
+router.get('/users/profile', authCheck ,profileCheck ,(req,res)=>{
    res.render('profile',{user:req.user})
 })
 
@@ -71,6 +70,7 @@ router.get('/users/dashboard', authCheck , profileCheck , async (req,res)=>{
             if (req.user.jobTypes.includes(job.jobType)) return true
             return false
         })
+        
         res.render('dashboard',{ jobs:fitjobs ,user:req.user})
      }
      else{
@@ -78,7 +78,8 @@ router.get('/users/dashboard', authCheck , profileCheck , async (req,res)=>{
         res.render('dashboard',{ users:users ,user:req.user})
      }
 });
-router.post('/users/dashboard/filter',authCheck , profileCheck , async (req,res)=>{
+
+router.post('/users/dashboard/filter', authCheck , profileCheck , async (req,res)=>{
     const filters = []
     for(var propt in req.body) {
         filters.push(propt)
@@ -97,8 +98,14 @@ router.post('/users/dashboard/filter',authCheck , profileCheck , async (req,res)
 
 })
 
-router.get('/users/newjobs',authCheck ,(req,res)=>{
+router.get('/users/newjobs', authCheck ,(req,res)=>{
     res.render('job-form', {user:req.user})
+})
+
+
+
+router.get('/about-us',(req,res)=>{
+    res.render('about-us',{user:req.user})
 })
 
 module.exports=router
