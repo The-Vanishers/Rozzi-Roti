@@ -1,10 +1,23 @@
 const express= require('express')
 const mongoose = require('mongoose')
 const Job = require('../models/job-model')
+
 const router = express.Router()
 
 
-router.post('/users/newjobs/jobs' , async (req,res)=>{
+router.get('/jobs', async (req,res)=>{
+    const jobTypes = req.body.jobTypes
+    try {
+        const alljobs=await Job.find({})
+        const jobs = alljobs.filter((job)=> jobTypes.includes(job.jobType))
+        res.status(200).send(jobs)
+        
+    } catch (error) {
+        res.status(400).send(error)
+    }
+})
+
+router.post('/users/newjobs/jobs', async (req,res)=>{
    
     await Job.findOne( { jobType:req.body.jobType , ownerID:req.user.googleID } ) .then((currentJob)=>{
         if(currentJob)
@@ -35,18 +48,6 @@ router.post('/jobs/delete', async (req,res)=>{
     }
     
     res.redirect('/users/jobs')
-})
-
-router.get('/jobs',async (req,res)=>{
-    const jobTypes = req.body.jobTypes
-    try {
-        const alljobs=await Job.find({})
-        const jobs = alljobs.filter((job)=> jobTypes.includes(job.jobType))
-        res.status(200).send(jobs)
-        
-    } catch (error) {
-        res.status(400).send(error)
-    }
 })
 
 
